@@ -6,11 +6,14 @@ const MovieListItem = ({ movie }) => {
     const { title, poster, year, db_vote_average } = movie.attributes;
     const imgUrl = `https://image.tmdb.org/t/p/w342/${poster}`;
     return (
-        <li className="movie-item">
-            <Link to={`/movie/${movie.id}`} className="thumbnail">
+
+        <li className="movie-item thumbnail">
+
+            <figure className="snip1273">
+
                 <img src={imgUrl} alt={title} />
-                <div className="movie-description">
-                    <h2>{title}</h2>
+                <figcaption>
+                    <h1>{title}</h1>
                     <section className="movie-details">
                         <div className="movie-year">
                             <span className="title">Year</span>
@@ -21,8 +24,17 @@ const MovieListItem = ({ movie }) => {
                             <span>{db_vote_average}</span>
                         </div>
                     </section>
-                </div>
-            </Link>
+                    <div className="movie-btn">
+                        <Link to={`/movie/${movie.id}`} ><span className="info" >Info</span> </Link>
+                        <span className="play" >Play</span>
+                    </div>
+
+                </figcaption>
+                <div className="thumbnail"></div>
+
+
+            </figure>
+
         </li>
     );
 };
